@@ -1,0 +1,27 @@
+{
+  "schemaVersion": 1,
+  "id": "toggleelytra",
+  "version": "${version}",
+
+  "name": "Toggle Elytra",
+  "description": "Adds a key to toggle elytra flight.",
+  "authors": [
+    "Cael"
+  ],
+  "contact": {},
+
+  "license": "MIT",
+  "accessWidener" : "toggleelytra.accesswidener",
+
+  "environment": "client",
+  "entrypoints": {
+    "client": [
+      "me.cael.toggleelytra.client.ToggleElytraClient"
+    ]
+  },
+  "depends": {
+    "fabricloader": ">=0.14.8",
+    "fabric": "*",
+    "minecraft": ">=1.18"
+  }
+}
