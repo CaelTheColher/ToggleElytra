@@ -30,15 +30,11 @@ public class ToggleElytraClient implements ClientModInitializer {
         KeyBindingHelper.registerKeyBinding(elytraToggleKey);
         ClientTickEvents.END_CLIENT_TICK.register(client -> {
             while (elytraToggleKey.wasPressed()) {
-                client.options.load();
                 elytraToggle = !elytraToggle;
                 client.options.write();
                 client.player.sendMessage(ScreenTexts.composeToggleText(new TranslatableText("message.toggleelytra"), elytraToggle), true);
             }
         });
-        EntityElytraEvents.ALLOW.register(entity -> {
-            MinecraftClient.getInstance().options.load();
-            return elytraToggle;
-        });
+        EntityElytraEvents.ALLOW.register(entity -> elytraToggle);
     }
 }

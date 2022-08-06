@@ -19,6 +19,9 @@
       "me.cael.toggleelytra.client.ToggleElytraClient"
     ]
   },
+  "mixins": [
+    "toggleelytra.mixins.json"
+  ],
   "depends": {
     "fabricloader": ">=0.14.8",
     "fabric": "*",

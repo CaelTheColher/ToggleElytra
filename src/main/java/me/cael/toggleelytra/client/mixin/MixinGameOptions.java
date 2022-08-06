@@ -12,7 +12,6 @@ public class MixinGameOptions {
     
     @Inject(at = @At("HEAD"), method = "accept")
     public void accept(GameOptions.Visitor visitor, CallbackInfo ci) {
-        System.out.println("MixinGameOptions");
         ToggleElytraClient.elytraToggle = visitor.visitBoolean("toggleelytra", ToggleElytraClient.elytraToggle);
     }
 
