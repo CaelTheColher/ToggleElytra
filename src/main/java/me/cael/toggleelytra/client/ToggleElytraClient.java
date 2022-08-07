@@ -6,11 +6,10 @@ import net.fabricmc.api.Environment;
 import net.fabricmc.fabric.api.client.event.lifecycle.v1.ClientTickEvents;
 import net.fabricmc.fabric.api.client.keybinding.v1.KeyBindingHelper;
 import net.fabricmc.fabric.api.entity.event.v1.EntityElytraEvents;
-import net.minecraft.client.MinecraftClient;
-import net.minecraft.client.gui.screen.ScreenTexts;
 import net.minecraft.client.option.KeyBinding;
 import net.minecraft.client.util.InputUtil;
-import net.minecraft.text.TranslatableText;
+import net.minecraft.screen.ScreenTexts;
+import net.minecraft.text.Text;
 import org.lwjgl.glfw.GLFW;
 
 @Environment(EnvType.CLIENT)
@@ -32,7 +31,7 @@ public class ToggleElytraClient implements ClientModInitializer {
             while (elytraToggleKey.wasPressed()) {
                 elytraToggle = !elytraToggle;
                 client.options.write();
-                client.player.sendMessage(ScreenTexts.composeToggleText(new TranslatableText("message.toggleelytra"), elytraToggle), true);
+                client.player.sendMessage(ScreenTexts.composeToggleText(Text.translatable("message.toggleelytra"), elytraToggle), true);
             }
         });
         EntityElytraEvents.ALLOW.register(entity -> elytraToggle);
